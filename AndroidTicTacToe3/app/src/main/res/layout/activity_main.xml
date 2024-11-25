@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
+    android:theme = "@style/Theme.AppCompat.Light.DarkActionBar"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:layout_gravity="center" >
+    android:layout_gravity="center"
+    android:paddingTop="100dp">
 
     <TableLayout
         android:id="@+id/play_grid"
@@ -12,10 +14,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp">
         <TableRow android:gravity="center_horizontal">
-            <Button android:id="@+id/button_0"
+
+            <Button
+                android:id="@+id/button_0"
                 android:layout_width="100dp"
-                android:layout_height="100dp" android:text=" "
+                android:layout_height="100dp"
+                android:text=" "
                 android:textSize="70dp" />
+
             <Button android:id="@+id/button_1"
                 android:layout_width="100dp"
                 android:layout_height="100dp" android:text=" "
