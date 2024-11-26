@@ -1,5 +1,7 @@
-package co.edu.unal.androidtic_tac_toe
+package co.edu.unal.androidtictactoev2
 
+import android.app.Dialog
+import android.content.DialogInterface
 import android.graphics.Color
 import android.os.Bundle
 import android.view.Menu
@@ -11,6 +13,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.widget.Button
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.widget.Toolbar
 import kotlinx.coroutines.delay
 
 class MainActivity : AppCompatActivity() {
@@ -20,13 +24,24 @@ class MainActivity : AppCompatActivity() {
     private var playerVictory = false
     private var computerVictory = false
     private var playerStart = true
-    private val computer = Computer(2)
+    private var computer = Computer(2)
     private var gameBoard = Array(3){Array(3){" "} }
+    val positiveButtonClick = {dialog:DialogInterface, which: Int ->
+        setDifficulty(1)
+    }
+    val neutralButtonClick = {dialog:DialogInterface, which: Int ->
+        setDifficulty(2)
+    }
+    val negativeButtonClick = {dialog:DialogInterface, which: Int ->
+        setDifficulty(3)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         btnReset = findViewById(R.id.reset)
+        val toolbar: Toolbar? = findViewById(R.id.my_toolbar)
+        setSupportActionBar(toolbar)
         buttons = arrayOf(
             findViewById(R.id.button_0),
             findViewById(R.id.button_1),
@@ -46,8 +61,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater: MenuInflater = menuInflater
-        inflater.inflate(R.menu.options_menu,menu)
+        menuInflater.inflate(R.menu.options_menu,menu)
         return true
     }
 
@@ -58,9 +72,29 @@ class MainActivity : AppCompatActivity() {
                 reset()
                 true
             }
+            R.id.ai_difficulty -> {
+                val builder = AlertDialog.Builder(this)
+                with(builder){
+                    setMessage("Select Difficulty")
+                    setPositiveButton("Easy", DialogInterface.OnClickListener(function = positiveButtonClick))
+                    setNeutralButton("Medium", DialogInterface.OnClickListener(function = neutralButtonClick))
+                    setNegativeButton("Hard", DialogInterface.OnClickListener(function = negativeButtonClick))
+                    show()
+                }
+                return true
+            }
+            R.id.quit -> {
+                finish()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
+    fun setDifficulty(value:Int){
+        computer = Computer(value)
+    }
+
+
 
     private fun playerMove(index: Int){
         val row = index/3
@@ -73,20 +107,24 @@ class MainActivity : AppCompatActivity() {
             buttons[index].setTextColor(Color.GREEN)
             if (checkWin("X")){
                 statusText.text = "Player wins!"
+                statusText.setTextColor(Color.parseColor("#008000"))
                 playerVictory = true
                 dissable_buttons()
             }
         }
         if (!playerVictory && !draw()) {
             statusText.text = "Computer's Turn"
+            statusText.setTextColor(Color.parseColor("#FF0000"))
             computerMove()
         }
 
         if (checkWin("O")){
             statusText.text = "Computer Wins!"
+            statusText.setTextColor(Color.parseColor("#FF0000"))
             computerVictory = true
             dissable_buttons()
         }
+        draw()
     }
     private fun computerMove() {
         val move = computer.findBestMove(gameBoard)
@@ -111,6 +149,7 @@ class MainActivity : AppCompatActivity() {
             if (!playerVictory && !draw()) {
                 computerMove()
                 statusText.text = "Player's Turn"
+                statusText.setTextColor(Color.parseColor("#008000"))
             }
         }
     }
@@ -125,6 +164,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
         statusText.text = "Draw"
+        statusText.setTextColor(Color.parseColor("#1E90FF"))
         return true
     }
     private fun checkWin(player: String): Boolean {

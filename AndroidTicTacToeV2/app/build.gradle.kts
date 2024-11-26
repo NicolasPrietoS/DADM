@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "co.edu.unal.androidtictactoev2"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "co.edu.unal.androidtictactoev2"

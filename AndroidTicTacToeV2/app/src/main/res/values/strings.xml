@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Android TicTac Toe V2</string>
+    <string name="new_game" />
+    <string name="newGame">New Game</string>
 </resources>
