@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:paddingTop="1dp"
+    android:theme="@style/Theme.AppCompat.NoActionBar">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:title="Tic Tac Toe" />
+
+    <co.edu.unal.androidtictactoev2.BoardView
+        android:id="@+id/board"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+        android:id="@+id/information"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:paddingBottom="30dp"
+        android:text="informacion"
+        android:textColor="#000000"
+        android:textSize="20dp" />
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="1dp"
+        android:theme="@style/Theme.AppCompat.NoActionBar">
+        <TextView
+            android:id="@+id/player"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center_horizontal"
+            android:paddingBottom="15dp"
+            android:text="Jugador: 0"
+            android:textColor="#000000"
+            android:textSize="20dp" />
+        <TextView
+            android:id="@+id/computer"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center_horizontal"
+            android:paddingBottom="15dp"
+            android:text="Computador: 0"
+            android:textColor="#000000"
+            android:textSize="20dp" />
+        <TextView
+            android:id="@+id/draws"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center_horizontal"
+            android:paddingBottom="20dp"
+            android:text="Empates: 0"
+            android:textColor="#000000"
+            android:textSize="20dp" />
+    </LinearLayout>
+    <Button
+        android:id="@+id/reset"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:text="Reiniciar"
+        android:textSize="30dp" />
+
+</LinearLayout>
