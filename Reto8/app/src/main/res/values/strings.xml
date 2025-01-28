@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Reto8</string>
+    <string name="spinner_prompt">Clasificación</string>
+    <string name="agregar_empresa">Agregar Empresa</string>
+    <string name="directorio_de_empresas">Directorio de Empresas</string>
+</resources>

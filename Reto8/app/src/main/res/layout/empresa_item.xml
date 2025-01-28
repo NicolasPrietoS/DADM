@@ -1,0 +1,66 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:background="?attr/selectableItemBackground">
+
+    <!-- Nombre de la Empresa -->
+    <TextView
+        android:id="@+id/tvNombreEmpresa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nombre de la Empresa"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:paddingBottom="4dp"/>
+
+    <!-- URL de la Página Web -->
+    <TextView
+        android:id="@+id/tvUrl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="URL de la Página Web"
+        android:textSize="14sp"
+        android:textColor="@android:color/holo_blue_dark"
+        android:paddingBottom="4dp"/>
+
+    <!-- Teléfono de Contacto -->
+    <TextView
+        android:id="@+id/tvTelefono"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Teléfono de Contacto"
+        android:textSize="14sp"
+        android:paddingBottom="4dp"/>
+
+    <!-- Email de Contacto -->
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email de Contacto"
+        android:textSize="14sp"
+        android:paddingBottom="4dp"/>
+
+    <!-- Productos y Servicios -->
+    <TextView
+        android:id="@+id/tvProductosServicios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Productos y Servicios"
+        android:textSize="14sp"
+        android:paddingBottom="4dp"/>
+
+    <!-- Clasificación de la Empresa -->
+    <TextView
+        android:id="@+id/tvClasificacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Clasificación"
+        android:textSize="14sp"
+        android:paddingBottom="4dp"
+        android:textStyle="italic"/>
+
+</LinearLayout>
